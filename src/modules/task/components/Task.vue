@@ -17,27 +17,18 @@
       {{ description }}
     </p>
 
-    <div>
-      <button
-        @click="startTask"
-        type="button">
-        start
-      </button>
-
-      <button
-        @click="finishTask"
-        type="button">
-        finish
-      </button>
-    </div>
+    <task-actions v-bind="$props"></task-actions>
   </li>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-  import { STATUS_IN_PROGRESS_ID, STATUS_DONE_ID } from '../data/constants'
+  import TaskActions from './TaskActions'
 
   export default {
+    components: {
+      TaskActions
+    },
+
     props: {
       id: {
         type: String,
@@ -62,28 +53,6 @@
       timestamp: {
         type: Number,
         required: true
-      }
-    },
-
-    methods: {
-      ...mapActions('task', [
-        'updateTaskStatus',
-      ]),
-
-      startTask () {
-        this.updateTaskStatus({
-          id: this.id,
-          currentStatus: this.status,
-          statusId: STATUS_IN_PROGRESS_ID
-        })
-      },
-
-      finishTask () {
-        this.updateTaskStatus({
-          id: this.id,
-          currentStatus: this.status,
-          statusId: STATUS_DONE_ID
-        })
       }
     }
   }
