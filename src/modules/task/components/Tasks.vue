@@ -1,15 +1,22 @@
 <template>
   <ul>
-    <li
+    <task
       v-for="task in tasks"
-      :key="task.id">{{ task.title }}</li>
+      :key="task.id"
+      v-bind="task"></task>
   </ul>
 </template>
 
 <script>
   import { mapState } from 'vuex'
 
+  import Task from './Task'
+
   export default {
+    components: {
+      Task
+    },
+
     computed: mapState('task', [
       'tasks'
     ]),

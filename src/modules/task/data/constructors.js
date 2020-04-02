@@ -1,27 +1,4 @@
-/**
- * Status Labels Enum
- * @constant
- * @type {Array}
- */
-const STATUS_LABELS = {
-  0: 'Pending',
-  1: 'In Progress',
-  2: 'Done'
-}
-
-/**
- * Status Names Enum - Status Labels Enum in kebab-case
- * @constant
- * @type {Array}
- */
-const STATUS_NAMES = Object.entries(STATUS_LABELS)
-  .reduce((acc,[id, label]) => (
-    acc[id] = label
-      .toLowerCase()
-      .split(' ')
-      .join('-'),
-    acc
-  ), {})
+import { STATUS_LABELS, STATUS_NAMES } from './constants'
 
 /**
  * Task Status Class.

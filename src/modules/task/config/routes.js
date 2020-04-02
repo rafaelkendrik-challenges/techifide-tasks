@@ -1,9 +1,9 @@
-import List from '../components/List'
+import Tasks from '../components/Tasks'
 
 export default [
   {
     path: '/tasks',
     name: 'tasks',
-    component: List
+    component: Tasks
   }
 ]
