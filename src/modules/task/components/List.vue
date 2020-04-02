@@ -22,7 +22,7 @@
     ]),
 
     created () {
-      this.$store.dispatch('task/fetchAndSetTasks')
+      this.$store.dispatch('task/retrieveTasks')
     }
   }
 </script>

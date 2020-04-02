@@ -1,9 +1,9 @@
-import Tasks from '../components/Tasks'
+import Page from '../components/Page'
 
 export default [
   {
     path: '/tasks',
     name: 'tasks',
-    component: Tasks
+    component: Page
   }
 ]
