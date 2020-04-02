@@ -1,5 +1,5 @@
 <template>
-  <li :class="['task', `task--${status.name}`]">
+  <li :class="taskClasses">
     <div>
       <span>
         {{ status.label }}
@@ -9,13 +9,18 @@
       </span>
     </div>
 
-    <h2 class="task__title">
+    <h2
+      class="task__title"
+      @mouseover="showDescriptionPopover"
+      @mouseleave="hideDescriptionPopover">
       {{ title }}
     </h2>
 
-    <p>
-      {{ description }}
-    </p>
+    <v-popover ref="descriptionPopover">
+      <p>
+        {{ description }}
+      </p>
+    </v-popover>
 
     <task-actions v-bind="$props"></task-actions>
   </li>
@@ -23,10 +28,12 @@
 
 <script>
   import TaskActions from './TaskActions'
+  import VPopover from 'src/components/common/VPopover'
 
   export default {
     components: {
-      TaskActions
+      TaskActions,
+      VPopover
     },
 
     props: {
@@ -53,6 +60,22 @@
       timestamp: {
         type: Number,
         required: true
+      }
+    },
+
+    computed: {
+      taskClasses () {
+        return ['task', `task--${this.status.name}`]
+      }
+    },
+
+    methods: {
+      showDescriptionPopover () {
+        this.$refs.descriptionPopover.show()
+      },
+
+      hideDescriptionPopover () {
+        this.$refs.descriptionPopover.hide()
       }
     }
   }
