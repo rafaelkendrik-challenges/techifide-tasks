@@ -11,9 +11,9 @@ export const STATUS_DONE_LABEL = 'Done'
 export const STATUS_DONE_ID = 2
 
 /**
- * Status Names Enum by IDS
+ * Status Names Enum by Ids
  * @constant
- * @type {Array}
+ * @type {Object}
  */
 export const STATUS_NAMES = {
   [STATUS_PENDING_ID]: STATUS_PENDING,
@@ -22,9 +22,9 @@ export const STATUS_NAMES = {
 }
 
 /**
- * Status Labels Enum by IDs
+ * Status Labels Enum by Ids
  * @constant
- * @type {Array}
+ * @type {Object}
  */
 export const STATUS_LABELS = {
   [STATUS_PENDING_ID]: STATUS_PENDING_LABEL,
