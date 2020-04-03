@@ -24,7 +24,7 @@
     <task-actions v-bind="$props"></task-actions>
 
     <div class="task__timestamp">
-      {{ timestamp }}
+      {{ displayDate }}
     </div>
   </li>
 </template>
@@ -67,6 +67,13 @@
     },
 
     computed: {
+      displayDate () {
+        const date = new Date(this.timestamp)
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+
+        return date.toLocaleDateString('en-UK', options)
+      },
+
       taskClasses () {
         return ['task', `task--${this.status.name}`]
       }
@@ -153,7 +160,7 @@
     }
 
     &__timestamp {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       width: 100%;
     }
   }
