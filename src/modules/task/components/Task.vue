@@ -5,19 +5,21 @@
         {{ status.label }}
       </span>
 
-      <h2
-        class="task__title"
+      <div
+        class="task__titlewrapper"
         @mouseover="showDescriptionPopover"
         @mouseleave="hideDescriptionPopover">
-        {{ title }}
-      </h2>
-    </div>
+        <h2 class="task__title">
+          {{ title }}
+        </h2>
 
-    <v-popover ref="descriptionPopover">
-      <p>
-        {{ description }}
-      </p>
-    </v-popover>
+        <v-popover ref="descriptionPopover">
+          <p>
+            {{ description }}
+          </p>
+        </v-popover>
+      </div>
+    </div>
 
     <task-actions v-bind="$props"></task-actions>
 
@@ -133,8 +135,14 @@
       padding: 0.35rem;
     }
 
-    &__title {
+    &__titlewrapper {
       cursor: pointer;
+      display: inline;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    &__title {
       display: inline;
       font-size: 1.8rem;
       font-weight: 400;
@@ -142,7 +150,6 @@
       opacity: 0.9;
       padding-left: 1rem;
       text-transform: capitalize;
-      vertical-align: middle;
     }
 
     &__timestamp {
