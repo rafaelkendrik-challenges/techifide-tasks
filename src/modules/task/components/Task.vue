@@ -1,20 +1,17 @@
 <template>
   <li :class="taskClasses">
     <div>
-      <span>
+      <span class="task__status">
         {{ status.label }}
       </span>
-      <span>
-        {{ timestamp }}
-      </span>
-    </div>
 
-    <h2
-      class="task__title"
-      @mouseover="showDescriptionPopover"
-      @mouseleave="hideDescriptionPopover">
-      {{ title }}
-    </h2>
+      <h2
+        class="task__title"
+        @mouseover="showDescriptionPopover"
+        @mouseleave="hideDescriptionPopover">
+        {{ title }}
+      </h2>
+    </div>
 
     <v-popover ref="descriptionPopover">
       <p>
@@ -23,6 +20,10 @@
     </v-popover>
 
     <task-actions v-bind="$props"></task-actions>
+
+    <div class="task__timestamp">
+      {{ timestamp }}
+    </div>
   </li>
 </template>
 
@@ -83,14 +84,30 @@
 
 <style lang="scss" scoped>
   .task {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+
     &--pending {
       .task__title {
+        color: #eeb462;
+      }
+
+      .task__status {
+        border-color: #eeb462;
         color: #eeb462;
       }
     }
 
     &--in-progress {
       .task__title {
+        color: #138086;
+      }
+
+      .task__status {
+        border-color: #138086;
         color: #138086;
       }
     }
@@ -100,6 +117,37 @@
         color: #534666;
         text-decoration: line-through;
       }
+
+      .task__status {
+        border-color: #534666;
+        color: #534666;
+      }
+    }
+
+    &__status {
+      display: inline;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 0.15rem;
+      font-size: 0.8rem;
+      padding: 0.35rem;
+    }
+
+    &__title {
+      cursor: pointer;
+      display: inline;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.05rem;
+      opacity: 0.9;
+      padding-left: 1rem;
+      text-transform: capitalize;
+      vertical-align: middle;
+    }
+
+    &__timestamp {
+      font-size: 0.6rem;
+      width: 100%;
     }
   }
 </style>
