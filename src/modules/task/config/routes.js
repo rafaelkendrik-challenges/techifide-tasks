@@ -4,6 +4,7 @@ export default [
   {
     path: '/tasks',
     name: 'tasks',
-    component: Page
+    component: Page,
+    alias: '/'
   }
 ]

@@ -20,8 +20,10 @@ const fakeAxios = (url, params) => {
   if (url === '/task') {
     const { description, title } = params
 
+    const timestamp = (new Date()).getTime()
+
     return Promise.resolve({
-      id: 'id004', title, description, statusId: 0, timestamp: (new Date()).getTime()
+      id: `id${timestamp}`, title, description, statusId: 0, timestamp
     })
   }
 

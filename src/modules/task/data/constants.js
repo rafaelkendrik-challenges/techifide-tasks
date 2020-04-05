@@ -21,6 +21,8 @@ export const STATUS_NAMES = {
   [STATUS_DONE_ID]: STATUS_DONE
 }
 
+Object.freeze(STATUS_NAMES)
+
 /**
  * Status Labels Enum by Ids
  * @constant
@@ -31,3 +33,5 @@ export const STATUS_LABELS = {
   [STATUS_IN_PROGRESS_ID]: STATUS_IN_PROGRESS_LABEL,
   [STATUS_DONE_ID]: STATUS_DONE_LABEL
 }
+
+Object.freeze(STATUS_LABELS)
