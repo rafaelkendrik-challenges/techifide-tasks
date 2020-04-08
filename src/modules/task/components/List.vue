@@ -1,12 +1,17 @@
 <template>
   <div class="list">
     <h2 class="list__title">My Tasks</h2>
-    <ul>
+
+    <ul v-if="hasTasks">
       <task
         v-for="task in tasks"
         :key="task.id"
         v-bind="task"></task>
     </ul>
+
+    <span v-else>
+      There is no tasks!
+    </span>
   </div>
 </template>
 
@@ -20,9 +25,15 @@
       Task
     },
 
-    computed: mapState('task', [
-      'tasks'
-    ]),
+    computed: {
+      ...mapState('task', [
+        'tasks'
+      ]),
+
+      hasTasks () {
+        return Boolean(this.tasks.length)
+      }
+    },
 
     created () {
       this.$store.dispatch('task/retrieveTasks')
