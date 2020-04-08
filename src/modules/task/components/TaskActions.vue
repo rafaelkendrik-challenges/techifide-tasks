@@ -76,6 +76,8 @@
 
 <style lang="scss" scoped>
   .actions {
+    pointer-events: none;
+
     &__button {
       background-color: #ffffff;
       border: none;
@@ -83,10 +85,12 @@
       outline: none;
       opacity: 0.75;
       padding: 0.15rem 0.5rem;
+      pointer-events: auto;
       width: 3rem;
 
       &:disabled {
         cursor: default;
+        pointer-events: none;
 
         .actions__button__icon {
           opacity: 0.5;
