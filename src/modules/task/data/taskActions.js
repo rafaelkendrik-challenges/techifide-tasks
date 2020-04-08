@@ -1,5 +1,5 @@
-import { fetchTasks, storeTask, storeTaskStatus } from './services'
-import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './types'
+import { fetchTasks, storeTask, storeTaskStatus } from './taskServices'
+import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './taskTypes'
 
 export const retrieveTasks = async ({ commit }) => {
   const tasks = await fetchTasks()

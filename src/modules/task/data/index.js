@@ -1,7 +1,7 @@
-import state from './state'
-import mutations from './mutations'
-import * as actions from './actions'
-import * as getters from './getters'
+import state from './taskState'
+import mutations from './taskMutations'
+import * as actions from './taskActions'
+import * as getters from './taskGetters'
 
 export default {
   namespaced: true,

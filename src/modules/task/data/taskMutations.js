@@ -1,5 +1,5 @@
-import { Task, TaskStatus } from './constructors'
-import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './types'
+import { Task, TaskStatus } from './taskConstructors'
+import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './taskTypes'
 
 export default {
   [SET_TASKS] (state, tasks) {

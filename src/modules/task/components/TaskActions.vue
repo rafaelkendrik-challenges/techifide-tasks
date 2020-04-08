@@ -25,7 +25,7 @@
 <script>
   import { mapActions } from 'vuex'
 
-  import { STATUS_IN_PROGRESS_ID, STATUS_DONE_ID } from '../data/constants'
+  import { STATUS_IN_PROGRESS_ID, STATUS_DONE_ID } from '../data/taskConstants'
 
   export default {
     props: {

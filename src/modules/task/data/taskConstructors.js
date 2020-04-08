@@ -1,4 +1,4 @@
-import { STATUS_LABELS, STATUS_NAMES } from './constants'
+import { STATUS_LABELS, STATUS_NAMES } from './taskConstants'
 
 /**
  * Task Status Class.
