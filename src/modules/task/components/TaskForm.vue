@@ -22,7 +22,10 @@
     </fieldset>
 
     <div>
-      <button class="form__button" title="Create Task" type="submit">
+      <button
+        class="form__button"
+        title="Create Task"
+        type="submit">
         <img class="form__button__icon" src="~src/assets/icon-plus.svg">
       </button>
     </div>

@@ -11,8 +11,8 @@
 </template>
 
 <script>
-  import TaskForm from './Form'
-  import TaskList from './List'
+  import TaskForm from './TaskForm'
+  import TaskList from './TaskList'
 
   export default {
     components: {

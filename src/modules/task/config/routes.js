@@ -1,10 +1,10 @@
-import Page from '../components/Page'
+import TaskPage from '../components/TaskPage'
 
 export default [
   {
     path: '/tasks',
     name: 'tasks',
-    component: Page,
+    component: TaskPage,
     alias: '/'
   }
 ]

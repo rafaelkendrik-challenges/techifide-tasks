@@ -3,10 +3,10 @@
     <h2 class="list__title">My Tasks</h2>
 
     <ul v-if="hasTasks">
-      <task
+      <task-item
         v-for="task in tasks"
         :key="task.id"
-        v-bind="task"></task>
+        v-bind="task"></task-item>
     </ul>
 
     <span v-else>
@@ -18,11 +18,11 @@
 <script>
   import { mapState } from 'vuex'
 
-  import Task from './Task'
+  import TaskItem from './TaskItem'
 
   export default {
     components: {
-      Task
+      TaskItem
     },
 
     computed: {
