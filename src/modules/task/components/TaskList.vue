@@ -2,14 +2,18 @@
   <div class="list">
     <h2 class="list__title">My Tasks</h2>
 
-    <ul v-if="hasTasks">
+    <ul
+      v-if="hasTasks"
+      key="task-list">
       <task-item
         v-for="task in tasks"
         :key="task.id"
         v-bind="task"></task-item>
     </ul>
 
-    <span v-else>
+    <span
+      v-else
+      key="task-list">
       There is no tasks!
     </span>
   </div>
