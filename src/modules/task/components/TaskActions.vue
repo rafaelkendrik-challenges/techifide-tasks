@@ -2,8 +2,8 @@
   <div class="actions">
     <button
       class="actions__button"
-      @click="startTask"
       :disabled="!isStartButtonEnabled"
+      @click="startTask"
       title="Start"
       type="button">
       <img class="actions__button__icon" src="~src/assets/icon-play.svg">
@@ -12,8 +12,8 @@
 
     <button
       class="actions__button"
-      @click="finishTask"
       :disabled="!isFinishButtonEnabled"
+      @click="finishTask"
       title="Finish"
       type="button">
       <img class="actions__button__icon" src="~src/assets/icon-check.svg">
@@ -25,7 +25,7 @@
 <script>
   import { mapActions } from 'vuex'
 
-  import { STATUS_IN_PROGRESS_ID, STATUS_DONE_ID } from '../data/taskConstants'
+  import { TASK_STATUS_IN_PROGRESS_REF, TASK_STATUS_DONE_REF } from '../data/taskConstants'
 
   export default {
     props: {
@@ -42,11 +42,11 @@
 
     computed: {
       isStartButtonEnabled () {
-        return (this.status.id < STATUS_IN_PROGRESS_ID)
+        return this.status.canProceedTo(TASK_STATUS_IN_PROGRESS_REF)
       },
 
       isFinishButtonEnabled () {
-        return (this.status.id < STATUS_DONE_ID)
+        return this.status.canProceedTo(TASK_STATUS_DONE_REF)
       }
     },
 
@@ -58,16 +58,16 @@
       startTask () {
         this.updateTaskStatus({
           id: this.id,
-          currentStatus: this.status,
-          statusId: STATUS_IN_PROGRESS_ID
+          status: this.status,
+          nextStatusRef: TASK_STATUS_IN_PROGRESS_REF
         })
       },
 
       finishTask () {
         this.updateTaskStatus({
           id: this.id,
-          currentStatus: this.status,
-          statusId: STATUS_DONE_ID
+          status: this.status,
+          nextStatusRef: TASK_STATUS_DONE_REF
         })
       }
     }

@@ -15,17 +15,15 @@ export const createTask = async ({ commit }, { title, description }) => {
   commit(SET_TASK, task)
 }
 
-export const updateTaskStatus = ({ commit }, {
+export const updateTaskStatus = async ({ commit }, {
   id,
-  currentStatus,
-  statusId
+  status,
+  nextStatusRef
 }) => {
-  if (currentStatus.id >= statusId) {
+  if (!status.canProceedTo(nextStatusRef)) {
     return
   }
 
-  storeTaskStatus({ id, statusId })
-    .then(() => {
-      commit(SET_TASK_STATUS, { id, statusId })
-    })
+  const task = await storeTaskStatus({ id, statusRef: nextStatusRef })
+  commit(SET_TASK_STATUS, task)
 }

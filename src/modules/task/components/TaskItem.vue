@@ -75,7 +75,7 @@
       },
 
       taskClasses () {
-        return ['task', `task--${this.status.name}`]
+        return ['task', `task--${this.status.ref}`]
       }
     },
 

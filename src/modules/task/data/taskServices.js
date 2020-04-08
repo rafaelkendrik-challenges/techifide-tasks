@@ -11,9 +11,9 @@ export const storeTaskStatus = params =>
 const fakeAxios = (url, params) => {
   if (url === '/tasks') {
     return Promise.resolve([
-      { id: 'id001', title: 'task title', statusId: 0, description: 'this is the description of a pending task', timestamp: 1585875534055 },
-      { id: 'id002', title: 'task title', statusId: 1, description: 'this is the description of a in-progress task', timestamp: 1585875534055 },
-      { id: 'id003', title: 'task title', statusId: 2, description: 'this is the description of a already done task', timestamp: 1585875534055 }
+      { id: 'id001', title: 'task title', statusRef: 'pending', description: 'this is the description of a pending task', timestamp: 1585875534055 },
+      { id: 'id002', title: 'task title', statusRef: 'in-progress', description: 'this is the description of a in-progress task', timestamp: 1585875534055 },
+      { id: 'id003', title: 'task title', statusRef: 'done', description: 'this is the description of a already done task', timestamp: 1585875534055 }
     ])
   }
 
@@ -23,11 +23,11 @@ const fakeAxios = (url, params) => {
     const timestamp = (new Date()).getTime()
 
     return Promise.resolve({
-      id: `id${timestamp}`, title, description, statusId: 0, timestamp
+      id: `id${timestamp}`, title, description, statusRef: 'pending', timestamp
     })
   }
 
   if (url === '/task/status') {
-    return Promise.resolve()
+    return Promise.resolve(params)
   }
 }

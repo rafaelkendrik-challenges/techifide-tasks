@@ -11,10 +11,10 @@ export default {
     state.tasks.push(new Task(task))
   },
 
-  [SET_TASK_STATUS] (state, { id, statusId }) {
+  [SET_TASK_STATUS] (state, { id, statusRef }) {
     const taskIndex = state.tasks
       .findIndex(task => task.id === id)
 
-    state.tasks[taskIndex].status = new TaskStatus(statusId)
+    state.tasks[taskIndex].status = new TaskStatus(statusRef)
   }
 }
