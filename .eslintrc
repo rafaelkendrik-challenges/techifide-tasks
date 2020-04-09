@@ -1,4 +1,9 @@
-"env": {
-  "parser": "babel-eslint"
-  "jest": true
+{
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": ["plugin:vue/base"],
+  "env": {
+    "jest": true
+  }
 }

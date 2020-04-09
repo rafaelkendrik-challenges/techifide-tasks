@@ -9,6 +9,10 @@ const TASK_STATUSES_SEQUENCE = Object.keys(TASK_STATUSES)
  */
 export class TaskStatus {
   constructor (ref) {
+    if (!ref) {
+      throw new ReferenceError('Expecting ref as argument.')
+    }
+
     this.ref = ref
     this.label = this._getLabel()
   }
