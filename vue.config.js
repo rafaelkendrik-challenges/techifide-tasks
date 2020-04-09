@@ -18,6 +18,7 @@ module.exports = {
 
   configureWebpack: {
     resolve: {
+      extensions: ['.js', '.json', '.vue'],
       alias: {
         'src': path.resolve(__dirname, 'src')
       }

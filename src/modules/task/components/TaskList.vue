@@ -3,6 +3,7 @@
     <h2 class="list__title">My Tasks</h2>
 
     <ul
+      class="list__items"
       v-if="hasTasks"
       key="task-list">
       <task-item
@@ -12,6 +13,7 @@
     </ul>
 
     <span
+      class="list__empty-message"
       v-else
       key="task-list">
       There is no tasks!
