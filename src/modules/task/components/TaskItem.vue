@@ -24,7 +24,7 @@
     <task-actions v-bind="$props"></task-actions>
 
     <div class="task__timestamp">
-      {{ displayDate }}
+      {{ timestamp | toLocaleDate }}
     </div>
   </li>
 </template>
@@ -67,13 +67,6 @@
     },
 
     computed: {
-      displayDate () {
-        const date = new Date(this.timestamp)
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-
-        return date.toLocaleDateString('en-UK', options)
-      },
-
       taskClasses () {
         return ['task', `task--${this.status.ref}`]
       }
@@ -86,6 +79,19 @@
 
       hideDescriptionPopover () {
         this.$refs.descriptionPopover.hide()
+      }
+    },
+
+    filters: {
+      toLocaleDate (timestamp) {
+        const language = (
+          window.navigator.userLanguage || window.navigator.language
+        ) || 'en-US'
+
+        const date = new Date(timestamp)
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+
+        return date.toLocaleDateString(language, options)
       }
     }
   }
