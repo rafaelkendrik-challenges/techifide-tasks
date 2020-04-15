@@ -1,6 +1,6 @@
-import { TASK_STATUSES } from './taskConstants'
+import { TASK_STATUSES_ENUM } from './taskConstants'
 
-const TASK_STATUSES_SEQUENCE = Object.keys(TASK_STATUSES)
+const TASK_STATUSES_SEQUENCE = Object.keys(TASK_STATUSES_ENUM)
 
 /**
  * Task Status Class
@@ -23,7 +23,7 @@ export class TaskStatus {
    * @returns {string} label - The status label.
    */
   _getLabel () {
-    return TASK_STATUSES[this.ref]
+    return TASK_STATUSES_ENUM[this.ref]
   }
 
   /**

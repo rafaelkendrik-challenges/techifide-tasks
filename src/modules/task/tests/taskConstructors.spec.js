@@ -1,7 +1,7 @@
 import { TaskStatus } from '../data/taskConstructors'
 
 jest.mock('../data/taskConstants', () => ({
-  TASK_STATUSES: {
+  TASK_STATUSES_ENUM: {
     foo: 'Foo',
     bar: 'Bar',
     baz: 'Baz'

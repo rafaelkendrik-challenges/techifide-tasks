@@ -13,10 +13,10 @@ export const TASK_STATUS_DONE = 'Done'
  * @constant
  * @type {Object}
  */
-export const TASK_STATUSES = {
+export const TASK_STATUSES_ENUM = {
   [TASK_STATUS_PENDING_REF]: TASK_STATUS_PENDING,
   [TASK_STATUS_IN_PROGRESS_REF]: TASK_STATUS_IN_PROGRESS,
   [TASK_STATUS_DONE_REF]: TASK_STATUS_DONE
 }
 
-Object.freeze(TASK_STATUSES)
+Object.freeze(TASK_STATUSES_ENUM)
