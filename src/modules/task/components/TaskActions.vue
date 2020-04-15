@@ -4,7 +4,6 @@
       class="actions__button"
       :disabled="!isStartButtonEnabled"
       @click="startTask"
-      title="Start"
       type="button">
       <img class="actions__button__icon" src="~src/assets/icon-play.svg">
       <span class="actions__button__label">start</span>
@@ -14,7 +13,6 @@
       class="actions__button"
       :disabled="!isFinishButtonEnabled"
       @click="finishTask"
-      title="Finish"
       type="button">
       <img class="actions__button__icon" src="~src/assets/icon-check.svg">
       <span class="actions__button__label">finish</span>
@@ -28,6 +26,8 @@
   import { TASK_STATUS_IN_PROGRESS_REF, TASK_STATUS_DONE_REF } from '../data/taskConstants'
 
   export default {
+    inheritAttrs: false,
+
     props: {
       id: {
         type: String,
@@ -76,8 +76,6 @@
 
 <style lang="scss" scoped>
   .actions {
-    pointer-events: none;
-
     &__button {
       background-color: #ffffff;
       border: none;
@@ -85,12 +83,10 @@
       outline: none;
       opacity: 0.75;
       padding: 0.15rem 0.5rem;
-      pointer-events: auto;
       width: 3rem;
 
       &:disabled {
         cursor: default;
-        pointer-events: none;
 
         .actions__button__icon {
           opacity: 0.5;
