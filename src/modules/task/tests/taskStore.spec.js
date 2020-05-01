@@ -5,6 +5,8 @@ import { Task } from '../data/taskConstructors'
 
 import {
   SET_TASKS,
+  PUSH_TASK,
+  SET_TASK_STATUS,
   GET_TASKS_LENGTH
 } from '../data/taskTypes'
 
@@ -35,6 +37,40 @@ describe('Task Store', () => {
 
       commit: jest.fn()
     }
+  })
+
+  describe('Mutations', () => {
+    it('should sets a collection of tasks in store.tasks', () => {
+      const tasks = tasksData.map(taskData => new Task(taskData))
+
+      mutations[SET_TASKS](store.state, tasksData)
+
+      expect(store.state.tasks).toEqual(tasks)
+    })
+
+    it('should pushes on task in store.tasks', () => {
+      const [taskData] = tasksData
+      const task = new Task(taskData)
+
+      mutations[PUSH_TASK](store.state, taskData)
+
+      const [taskInStore] = store.state.tasks
+      expect(taskInStore).toEqual(task)
+    })
+
+    it('should sets a new status to a task', () => {
+      const [taskData] = tasksData
+      const taskStatusData = {
+        id: '001',
+        statusRef: 'status-2'
+      }
+
+      mutations[PUSH_TASK](store.state, taskData)
+      mutations[SET_TASK_STATUS](store.state, taskStatusData)
+
+      const [taskInStore] = store.state.tasks
+      expect(taskInStore.status.ref).toBe(taskStatusData.statusRef)
+    })
   })
 
   describe('Getters', () => {

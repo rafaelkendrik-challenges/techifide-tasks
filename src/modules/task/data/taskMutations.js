@@ -1,5 +1,5 @@
 import { Task, TaskStatus } from './taskConstructors'
-import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './taskTypes'
+import { SET_TASKS, PUSH_TASK, SET_TASK_STATUS } from './taskTypes'
 
 export default {
   [SET_TASKS] (state, tasks) {
@@ -7,7 +7,7 @@ export default {
       .map(task => new Task(task))
   },
 
-  [SET_TASK] (state, task) {
+  [PUSH_TASK] (state, task) {
     state.tasks.push(new Task(task))
   },
 
