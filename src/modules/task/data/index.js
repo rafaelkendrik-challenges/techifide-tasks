@@ -1,7 +1,7 @@
 import state from './taskState'
 import mutations from './taskMutations'
+import getters from './taskGetters'
 import * as actions from './taskActions'
-import * as getters from './taskGetters'
 
 export default {
   namespaced: true,
