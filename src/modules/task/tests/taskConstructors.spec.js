@@ -1,5 +1,7 @@
 import { TaskStatus } from '../data/taskConstructors'
 
+// TODO: REFACTOR
+
 jest.mock('../data/taskConstants', () => ({
   TASK_STATUSES_ENUM: {
     foo: 'Foo',

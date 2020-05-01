@@ -1,6 +1,8 @@
 import { fetchTasks, storeTask, storeTaskStatus } from './taskServices'
 import { SET_TASKS, SET_TASK, SET_TASK_STATUS } from './taskTypes'
 
+// TODO: REFACTOR TO NEW PATTERN
+
 export const retrieveTasks = async ({ commit }) => {
   const tasks = await fetchTasks()
   commit(SET_TASKS, tasks)

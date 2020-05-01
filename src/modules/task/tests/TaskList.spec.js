@@ -5,6 +5,8 @@ import { Task } from '../data/taskConstructors'
 import TaskList from '../components/TaskList'
 import TaskItem from '../components/TaskItem'
 
+// TODO: REFACTOR
+
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
